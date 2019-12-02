@@ -26,18 +26,24 @@ public class Fibonacci implements Iterable<Integer> {
      * @param quantity количество элементов последовательности
      */
     public Fibonacci(int quantity) {
-        if (quantity == 0) {
-            fib[0] = 0;
-        } else if (quantity == 1) {
-            fib[0] = 0;
-            fib[1] = 1;
-        } else {
+        if (quantity >= 0) {
             fib = new int[quantity];
-            fib[0] = 0;
-            fib[1] = 1;
-            for (int i = 2; i < fib.length; i++) {
-                fib[i] = fib[i - 1] + fib[i - 2];
+            if (quantity == 0) {
+                fib = new int[0];
+            } else if (quantity == 1) {
+                fib[0] = 0;
+            } else if (quantity == 2) {
+                fib[0] = 0;
+                fib[1] = 1;
+            } else {
+                fib[0] = 0;
+                fib[1] = 1;
+                for (int i = 2; i < fib.length; i++) {
+                    fib[i] = fib[i - 1] + fib[i - 2];
+                }
             }
+        } else {
+            System.out.println("quantity can't be a negative number"); 
         }
     }
 
