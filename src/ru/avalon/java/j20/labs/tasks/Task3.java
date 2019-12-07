@@ -16,10 +16,10 @@ public class Task3 implements Task {
     public void run() {
         
         Fibonacci fib = new Fibonacci(20);
-        Iterator iter = fib.iterator();
+        Iterator<Integer> iter = fib.iterator();
         int sumFib = 0;
         while(iter.hasNext()) {
-            int fnum = (Integer) iter.next();
+            int fnum = iter.next();
             sumFib += fnum;
         }
         

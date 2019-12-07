@@ -52,7 +52,7 @@ public class Fibonacci implements Iterable<Integer> {
      * чисел Фибоначчи.
      */
     private class FibonacciIterator implements Iterator<Integer> {
-        
+
         /**
          * Определяет, есть ли следующее значение
          * последовательности чисел Фибоначчи.
@@ -75,7 +75,7 @@ public class Fibonacci implements Iterable<Integer> {
         @Override
         public Integer next() {
             return (Integer) fib[next++];
-            
+
         }
     }
 
