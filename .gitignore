@@ -534,7 +534,11 @@ javadoc/
 # lock file, a part of Oracle Credential Store Framework
 cwallet.sso.lck### NetBeans template
 nbproject/private/
+nbproject/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+build.xml
+manifest.mf

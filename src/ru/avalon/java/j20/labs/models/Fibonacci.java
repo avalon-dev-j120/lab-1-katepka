@@ -18,11 +18,40 @@ import java.util.Iterator;
  */
 public class Fibonacci implements Iterable<Integer> {
 
+    private int[] fib;
+    private int next = 0;
+
+    /**
+     * Конструктор, принимает {@param quantity} и инициализирует массив.
+     * @param quantity количество элементов последовательности
+     */
+    public Fibonacci(int quantity) {
+        if (quantity >= 0) {
+            fib = new int[quantity];
+            if (quantity == 0) {
+                fib = new int[0];
+            } else if (quantity == 1) {
+                fib[0] = 0;
+            } else if (quantity == 2) {
+                fib[0] = 0;
+                fib[1] = 1;
+            } else {
+                fib[0] = 0;
+                fib[1] = 1;
+                for (int i = 2; i < fib.length; i++) {
+                    fib[i] = fib[i - 1] + fib[i - 2];
+                }
+            }
+        } else {
+            System.out.println("quantity can't be a negative number"); 
+        }
+    }
+
     /**
      * Итератор, выполняющий обход последовательности
      * чисел Фибоначчи.
      */
-    private static class FibonacciIterator implements Iterator<Integer> {
+    private class FibonacciIterator implements Iterator<Integer> {
 
         /**
          * Определяет, есть ли следующее значение
@@ -34,7 +63,7 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public boolean hasNext() {
-            throw new UnsupportedOperationException("Not implemented yet!");
+            return next < fib.length;
         }
 
         /**
@@ -45,7 +74,8 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            throw new UnsupportedOperationException("Not implemented yet!");
+            return (Integer) fib[next++];
+
         }
     }
 

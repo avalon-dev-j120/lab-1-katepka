@@ -19,7 +19,13 @@ public final class Numbers {
         for (int value : values) sum += value;
         return sum;
     }
-
+    
+    public static <T extends Number> double sum(T[] values) {
+        double sum = 0.0;
+        for (T value : values) sum += value.doubleValue();
+        return sum;
+        }
+    
     /**
      * Выполняет поиск среднего арифметического заданного
      * массива чисел.
@@ -30,7 +36,11 @@ public final class Numbers {
     public static double avg(int[] values) {
         return (double) sum(values) / values.length;
     }
-
+    
+    public static <T extends Number> double avg(T[] values) {
+        return (double) sum(values) / values.length;
+    }
+    
     /**
      * Возвращает большее из дух переданных значений.
      *
@@ -40,6 +50,10 @@ public final class Numbers {
      */
     public static int max(int a, int b) {
         return a > b ? a : b;
+    }
+    
+    public static <T extends Number> T max(T a, T b) {
+        return a.doubleValue() > b.doubleValue() ? a : b;
     }
 
     /**
@@ -55,6 +69,12 @@ public final class Numbers {
         }
         return result;
     }
+    
+    public static <T extends Number> T max(T[] values) {
+        T result = values[0];
+        for (T value : values) result = max(result, value);
+        return result;
+    }
 
     /**
      * Возвращает меньшее из двух переданных значений.
@@ -65,6 +85,10 @@ public final class Numbers {
      */
     public static int min(int a, int b) {
         return a < b ? a : b;
+    }
+    
+    public static <T extends Number> T min(T a, T b) {
+        return a.doubleValue() < b.doubleValue() ? a : b;
     }
 
     /**
@@ -78,6 +102,12 @@ public final class Numbers {
         for (int i = 1; i < values.length; i++) {
             result = min(result, values[i]);
         }
+        return result;
+    }
+    
+    public static <T extends Number> T min(T[] values) {
+        T result = values[0];
+        for (T value : values) result = min(result, value);
         return result;
     }
 }
